@@ -39,7 +39,7 @@ figure;
 imshow([orig, recon]);
 imwrite([orig, recon], 'results/q2a.png');
 % RMSE of the reconstructed slice
-fprintf('RMSE : %f\n', (norm(double(recon) - double(orig))^2 / norm(double(orig))^2));
+fprintf('RMSE : %f\n', (norm(double(recon) - double(orig), 'fro')^2 / norm(double(orig), 'fro')^2));
 
 % Evaluate the time taken
 toc;

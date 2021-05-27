@@ -66,10 +66,13 @@ figure;
 imshow([orig1 recon1; orig2 recon2;]);
 imwrite([orig1 recon1; orig2 recon2;], sprintf('results/q2c_%i.png', lambda));
 % RMSE of the reconstructed slices
-fprintf('RMSE of slice 1 : %f\n', (norm(double(recon1) - double(orig1))^2 / norm(double(orig1))^2));
-fprintf('RMSE of slice 2 : %f\n', (norm(double(recon2) - double(orig2))^2 / norm(double(orig2))^2));
+fprintf('RMSE of slice 1 : %f\n', ...
+    (norm(double(recon1) - double(orig1), 'fro')^2 / norm(double(orig1), 'fro')^2));
+fprintf('RMSE of slice 2 : %f\n', ...
+    (norm(double(recon2) - double(orig2), 'fro')^2 / norm(double(orig2), 'fro')^2));
 fprintf('RMSE : %f\n', ...
-    (norm(double([recon1, recon2]) - double([orig1, orig2]))^2 / norm(double([orig1, orig2]))^2));
+    (norm(double([recon1, recon2]) - double([orig1, orig2]), 'fro')^2 / ...
+        norm(double([orig1, orig2]), 'fro')^2));
 
 % Evaluate the time taken
 toc;
