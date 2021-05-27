@@ -2,28 +2,40 @@ clc;
 clear;
 close all;
 
-% Reading
-slice = cast(imread("data/slice_50.png"),'double');
+%% Read the slices
+slice = cast(imread("data/slice_50.png"), 'double');
+
+%% Constants
 H = size(slice, 1);
 W = size(slice, 2);
-% figure; imshow(cast(slice, 'uint8'));
 
-% Padding
-orig = zeros(W,W,'double');
+%% Padding
+orig = zeros(W, W, 'double');
 orig(18:17+H, :) = slice;
 N = W;
-% figure; imshow(cast(orig, 'uint8'));
 clear H W slice;
 
-% Angles of Projection
+%% Angles of Projection
 angles = 0:10:170; % Uniformly spaced angles
 
-% Creating Tomographic Projections
+%% Create Tomographic Projections
 tomo = radon(orig, angles);
 
-% Filtered Back-projection
+%% Filtered Back-projection
+tic;
 recon = iradon(tomo, angles, N); % Ram-Lak filter by default
 
-% Result
-figure; imshow(cast([orig recon], 'uint8'));
-imwrite(cast([orig recon], 'uint8'), 'results/q2a.png');
+%% Recast
+orig = cast(orig, 'uint8');
+recon = cast(recon, 'uint8');
+
+%% Save the result and Compute RMSE (Relative Mean Squared Error)
+% Display and Save the reconstructed slice
+figure;
+imshow(cast([orig, recon], 'uint8'));
+imwrite(cast([orig, recon], 'uint8'), 'results/q2a.png');
+% RMSE of the reconstructed slice
+fprintf('RMSE : %f\n', (norm(double(recon) - double(orig))^2 / norm(double(orig))^2));
+
+% Evaluate the time taken
+toc;
