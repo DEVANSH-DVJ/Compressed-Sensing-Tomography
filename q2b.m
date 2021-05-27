@@ -2,40 +2,62 @@ clc;
 clear;
 close all;
 
+%% Add L1_LS for solving l1-regularized least squares problem
 addpath("l1_ls_matlab");
 
-% Reading
-slice = cast(imread("data/slice_50.png"),'double');
+%% Read the slices
+slice = cast(imread("data/slice_50.png"), 'double');
+
+%% Padding
 H = size(slice, 1);
 W = size(slice, 2);
-% figure; imshow(cast(slice, 'uint8'));
+N = max(W, H);
+pad = abs(W - H)/2;
 
-% Padding
-orig = zeros(W,W,'double');
-orig(18:17+H, :) = slice;
-N = W;
-% figure; imshow(cast(orig, 'uint8'));
-clear H W slice;
+orig = zeros(N, N, 'double');
+if W > H
+    orig(pad:H+pad-1, :) = slice;
+else
+    orig(:, pad:W+pad-1) = slice;
+end
+clear H W pad slice;
 
-% Angles of Projection
+%% Angles of Projection
 angles = 0:10:170; % Uniformly spaced angles
 Q = size(angles, 2);
 
-% Creating Tomographic Projections
+%% Create Tomographic Projections
 tomo = radon(orig, angles);
 M = size(tomo, 1);
 
-% Creating objects of Forward matrix
+%% Reconstruction using CS
+% Set lambda
+lambda = 10;
+
+tic;
+% Create object of Forward matrix
 A  = RU(N, M, angles);
-At = A';
+
+% Reshape tomographic projections
 y = reshape(tomo, [M*Q 1]);
 
-% Reconstruction using CS
-% lambda_max = find_lambdamax_l1_ls(At,y);
-lambda = 1;
-[x, status] = l1_ls(A, At, M*Q, N*N, y, lambda);
+% Perform Sparse Recovery
+[x, status] = l1_ls(A, A', M*Q, N*N, y, lambda);
+
+% Reconstructed slice from coeffecients
 recon = idct2(reshape(x, [N N]));
 
-% Result
-figure; imshow(cast([orig recon], 'uint8'));
-imwrite(cast([orig recon], 'uint8'), 'results/q2b_1.png');
+%% Recast
+orig = cast(orig, 'uint8');
+recon = cast(recon, 'uint8');
+
+%% Save the result and Compute RMSE (Relative Mean Squared Error)
+% Display and Save the reconstructed slice
+figure;
+imshow([orig, recon]);
+imwrite([orig, recon], sprintf('results/q2b_%i.png', lambda));
+% RMSE of the reconstructed slice
+fprintf('RMSE : %f\n', (norm(double(recon) - double(orig))^2 / norm(double(orig))^2));
+
+% Evaluate the time taken
+toc;
