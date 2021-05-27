@@ -1,5 +1,13 @@
 
-function  res = RU(N, M, angles)
+function res = RU(N, M, angles)
+    % Input:
+    %   N      : Width of slice
+    %   M      : Number of tomographic displacements
+    %   angles : Angle of projections
+    % Output:
+    %   res : Object of RU class
+    % Brief:
+    %   Constructor of RU class
 
     res.adjoint = 0; % 1 if transpose
     res.N = N; % Width of slice

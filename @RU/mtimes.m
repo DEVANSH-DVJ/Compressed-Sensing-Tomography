@@ -1,5 +1,12 @@
 
 function res = mtimes(A,x)
+    % Input:
+    %   A : Object of RU class
+    % Output:
+    %   res : if not transpose, vectorized (radon transform of DCT*x)
+    %         if transpose, vectorized (inverse radon transform of x)*DCT'
+    % Brief:
+    %   Overloads matrix multiplication operator of RU class
 
     if A.adjoint == 0
         % A*x
