@@ -8,12 +8,18 @@ function res = RU(N, M, angles)
     %   res : Object of RU class
     % Brief:
     %   Constructor of RU class
+    % Variables:
+    %   RU.adjoint : 1 if transpose else 0
+    %   RU.N       : N
+    %   RU.M       : M
+    %   RU.angles  : angles
+    %   RU.Q       : size(angles, 2)
 
-    res.adjoint = 0; % 1 if transpose
-    res.N = N; % Width of slice
-    res.M = M; % Number of tomographic displacements
-    res.angles = angles; % Angle of projections
-    res.Q = size(angles, 2); % Number of angle of projections
+    res.adjoint = 0;
+    res.N = N;
+    res.M = M;
+    res.angles = angles;
+    res.Q = size(angles, 2);
 
     % Register this variable as a RU class
     res = class(res, 'RU');
