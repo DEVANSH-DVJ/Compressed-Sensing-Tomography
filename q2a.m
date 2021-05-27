@@ -5,15 +5,19 @@ close all;
 %% Read the slices
 slice = cast(imread("data/slice_50.png"), 'double');
 
-%% Constants
+%% Padding
 H = size(slice, 1);
 W = size(slice, 2);
+N = max(W, H);
+pad = abs(W - H)/2;
 
-%% Padding
-orig = zeros(W, W, 'double');
-orig(18:17+H, :) = slice;
-N = W;
-clear H W slice;
+orig = zeros(N, N, 'double');
+if W > H
+    orig(pad:H+pad-1, :) = slice;
+else
+    orig(:, pad:W+pad-1) = slice;
+end
+clear H W pad slice;
 
 %% Angles of Projection
 angles = 0:10:170; % Uniformly spaced angles
@@ -32,8 +36,8 @@ recon = cast(recon, 'uint8');
 %% Save the result and Compute RMSE (Relative Mean Squared Error)
 % Display and Save the reconstructed slice
 figure;
-imshow(cast([orig, recon], 'uint8'));
-imwrite(cast([orig, recon], 'uint8'), 'results/q2a.png');
+imshow([orig, recon]);
+imwrite([orig, recon], 'results/q2a.png');
 % RMSE of the reconstructed slice
 fprintf('RMSE : %f\n', (norm(double(recon) - double(orig))^2 / norm(double(orig))^2));
 
