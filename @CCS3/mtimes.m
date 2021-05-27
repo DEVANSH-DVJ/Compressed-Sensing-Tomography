@@ -1,5 +1,14 @@
 
 function res = mtimes(A,x)
+    % Input:
+    %   A : Object of CCS3 class
+    %   x : coefficients of slice of size 3*A.N*A.N or
+    %        vectorized slice of size 3*A.M*A.Q
+   % Output:
+    %   res : if not transpose, [R1*U R1*U 0; R2*U 0 0; R3*U 0 R3*U] * x
+    %         if transpose, [U'*R1' U'*R2' U'*R3'; U'*R1' 0 0; 0 0 U'*R3'] * x
+    % Brief:
+    %   Overloads matrix multiplication operator of CCS3 class
 
     if A.adjoint == 0
         % A*x
