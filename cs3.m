@@ -73,7 +73,7 @@ recon3 = cast(recon3, 'uint8');
 % Display and Save the reconstructed slices
 figure;
 imshow([orig1 recon1; orig2 recon2; orig3 recon3;]);
-imwrite([orig1 recon1; orig2 recon2; orig3 recon3;], sprintf('results/q2d_%i.png', lambda));
+imwrite([orig1 recon1; orig2 recon2; orig3 recon3;], sprintf('results/cs3_%i.png', lambda));
 % RMSE of the reconstructed slices
 fprintf('RMSE of slice 1 : %f\n', ...
     (norm(double(recon1) - double(orig1), 'fro')^2 / norm(double(orig1), 'fro')^2));

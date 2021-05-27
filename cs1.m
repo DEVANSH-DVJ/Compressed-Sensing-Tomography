@@ -55,7 +55,7 @@ recon = cast(recon, 'uint8');
 % Display and Save the reconstructed slice
 figure;
 imshow([orig, recon]);
-imwrite([orig, recon], sprintf('results/q2b_%i.png', lambda));
+imwrite([orig, recon], sprintf('results/cs1_%i.png', lambda));
 % RMSE of the reconstructed slice
 fprintf('RMSE : %f\n', ...
     (norm(double(recon) - double(orig), 'fro')^2 / norm(double(orig), 'fro')^2));
