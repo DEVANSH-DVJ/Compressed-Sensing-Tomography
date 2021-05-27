@@ -2,8 +2,8 @@
 function res = mtimes(A,x)
     % Input:
     %   A : Object of CCS2 class
-    %   x : coefficients of slice of size A.N*A.N or
-    %        vectorized slice of size A.M*A.Q
+    %   x : coefficients of slice of size 2*A.N*A.N or
+    %        vectorized slice of size 2*A.M*A.Q
    % Output:
     %   res : if not transpose, [R1*U 0; R2*U R2*U;] * x
     %         if transpose, [U'*R1' U'*R2'; 0 U'*R1';] * x
