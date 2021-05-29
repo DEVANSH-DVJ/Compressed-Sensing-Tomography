@@ -20,3 +20,18 @@ The cost minimization problem formed for 2 slice Coupled CS:
 ![](others/CCS2.png)  
 The cost minimization problem formed for 3 slice Coupled CS:  
 ![](others/CCS3.png)
+
+## Code
+
+We have use Object-oriented programming in MATLAB for creating objects needed for `l1_ls` package.  
+`@CS` contains class `CS` which represent the forward model matrix for CS tomography.  
+`@CCS2` contains class `CCS2` which represent the forward model matrix for 2 slice Coupled CS tomography.  
+`@CCS3` contains class `CCS3` which represent the forward model matrix for 3 slice Coupled CS tomography.
+
+Code for FBP algorithm with Ram-Lak filter is present in `fbp.m`.  
+Code for CS algorithm is present in `cs1.m`.  
+Code for 2 slice Coupled CS algorithm is present in `cs2.m`.  
+Code for 3 slice Coupled CS algorithm is present in `cs3.m`.
+
+Execute `fbp.m`, `cs1.m`, `cs2.m` and `cs3.m` in MATLAB to reproduce the results.  
+The code is tested on MATLAB 2020b, but should work on other versions of MATLAB with no or little changes.
