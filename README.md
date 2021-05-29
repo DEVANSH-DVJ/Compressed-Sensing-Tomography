@@ -41,3 +41,25 @@ The code is tested on MATLAB 2020b, but should work on other versions of MATLAB 
 We worked on 6 slices present in `data/`.  
 FBP and CS Tomography worked on one slice each, whereas 2 slice Coupled CS Tomography and 3 slice Coupled CS Tomography worked on two and three slices respectively.  
 We evaluated the reconstructed slices by computing RMSE (Relative Mean Square Error) w.r.t. original slices.
+
+### Filtered Back Projection Algorithm with Ram-Lak filter
+
+RMSE: 0.097165  
+![](results/fbp.png)
+
+### CS Tomography
+
+#### Lambda = 100
+
+RMSE: 0.066177  
+![](results/cs1_100.png)
+
+#### Lambda = 10
+
+RMSE: 0.052666  
+![](results/cs1_10.png)
+
+#### Lambda = 1
+
+RMSE: 0.053978  
+![](results/cs1_1.png)
