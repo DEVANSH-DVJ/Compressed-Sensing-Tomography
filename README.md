@@ -63,3 +63,39 @@ RMSE: 0.052666
 
 RMSE: 0.053978  
 ![](results/cs1_1.png)
+
+
+### 2 slice Coupled CS Tomography
+
+#### Lambda = 100
+
+RMSE: 0.033077  
+![](results/cs2_100.png)
+
+#### Lambda = 10
+
+RMSE: 0.026821  
+![](results/cs2_10.png)
+
+#### Lambda = 1
+
+RMSE: 0.024038  
+![](results/cs2_1.png)
+
+
+### 3 slice Coupled CS Tomography
+
+#### Lambda = 100
+
+RMSE: 0.023636  
+![](results/cs3_100.png)
+
+#### Lambda = 10
+
+RMSE: 0.020879  
+![](results/cs3_10.png)
+
+#### Lambda = 1
+
+RMSE: 0.019902  
+![](results/cs3_1.png)
