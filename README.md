@@ -12,14 +12,14 @@ Hence tomography can be considered a compressed sensing problem.
 
 The FBP algorithm which is used for inverse radon transform doesn't exploit the sparsity (or compressibility) of natural images in DCT bases.  
 We use this principle (CS) to form a cost minimization problem:  
-![Minimization Function for CS](others/CS.png)
+![Minimization Function for CS](others/CS.png "Minimization Function for CS")
 
 One can make use of additional redundancy in the data – the difference between two consecutive slices is sparse.  
 This can be used to improve the tomographic reconstruction quality for the same number of measurements – if one chooses different angles for different slices.  
 The cost minimization problem formed for 2 slice Coupled CS:  
-![Minimization Function for 2 slice Coupled CS](others/CCS2.png)  
+![Minimization Function for 2 slice Coupled CS](others/CCS2.png "Minimization Function for 2 slice Coupled CS")  
 The cost minimization problem formed for 3 slice Coupled CS:  
-![Minimization Function for 3 slice Coupled CS](others/CCS3.png)
+![Minimization Function for 3 slice Coupled CS](others/CCS3.png "Minimization Function for 3 slice Coupled CS")
 
 ## Code
 
@@ -45,58 +45,58 @@ We evaluated the reconstructed slices by computing RMSE (Relative Mean Square Er
 ### Filtered Back Projection Algorithm with Ram-Lak filter
 
 RMSE: 0.097165  
-![FBP Result](results/fbp.png)
+![FBP Result](results/fbp.png "FBP Result")
 
 ### CS Tomography
 
 #### Lambda = 100
 
 RMSE: 0.066177  
-![CS Result for lambda = 100](results/cs1_100.png)
+![CS Result for lambda = 100](results/cs1_100.png "CS Result for lambda = 100")
 
 #### Lambda = 10
 
 RMSE: 0.052666  
-![CS Result for lambda = 10](results/cs1_10.png)
+![CS Result for lambda = 10](results/cs1_10.png "CS Result for lambda = 10")
 
 #### Lambda = 1
 
 RMSE: 0.053978  
-![CS Result for lambda = 1(results/cs1_1.png)
+![CS Result for lambda = 1](results/cs1_1.png "CS Result for lambda = 1")
 
 ### 2 slice Coupled CS Tomography
 
 #### Lambda = 100
 
 RMSE: 0.033077  
-![2 slice Coupled CS Result for lambda = 100](results/cs2_100.png)
+![2 slice Coupled CS Result for lambda = 100](results/cs2_100.png "2 slice Coupled CS Result for lambda = 100")
 
 #### Lambda = 10
 
 RMSE: 0.026821  
-![2 slice Coupled CS Result for lambda = 10](results/cs2_10.png)
+![2 slice Coupled CS Result for lambda = 10](results/cs2_10.png "2 slice Coupled CS Result for lambda = 10")
 
 #### Lambda = 1
 
 RMSE: 0.024038  
-![2 slice Coupled CS Result for lambda = 1](results/cs2_1.png)
+![2 slice Coupled CS Result for lambda = 1](results/cs2_1.png "2 slice Coupled CS Result for lambda = 1")
 
 ### 3 slice Coupled CS Tomography
 
 #### Lambda = 100
 
 RMSE: 0.023636  
-![3 slice Coupled CS Result for lambda = 100](results/cs3_100.png)
+![3 slice Coupled CS Result for lambda = 100](results/cs3_100.png "3 slice Coupled CS Result for lambda = 100")
 
 #### Lambda = 10
 
 RMSE: 0.020879  
-![3 slice Coupled CS Result for lambda = 10](results/cs3_10.png)
+![3 slice Coupled CS Result for lambda = 10](results/cs3_10.png "3 slice Coupled CS Result for lambda = 10")
 
 #### Lambda = 1
 
 RMSE: 0.019902  
-![3 slice Coupled CS Result for lambda = 1](results/cs3_1.png)
+![3 slice Coupled CS Result for lambda = 1](results/cs3_1.png "3 slice Coupled CS Result for lambda = 1")
 
 ## Conclusions
 
