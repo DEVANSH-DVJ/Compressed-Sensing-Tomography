@@ -35,3 +35,9 @@ Code for 3 slice Coupled CS algorithm is present in `cs3.m`.
 
 Execute `fbp.m`, `cs1.m`, `cs2.m` and `cs3.m` in MATLAB to reproduce the results.  
 The code is tested on MATLAB 2020b, but should work on other versions of MATLAB with no or little changes.
+
+## Results
+
+We worked on 6 slices present in `data/`.  
+FBP and CS Tomography worked on one slice each, whereas 2 slice Coupled CS Tomography and 3 slice Coupled CS Tomography worked on two and three slices respectively.  
+We evaluated the reconstructed slices by computing RMSE (Relative Mean Square Error) w.r.t. original slices.
