@@ -64,7 +64,6 @@ RMSE: 0.052666
 RMSE: 0.053978  
 ![](results/cs1_1.png)
 
-
 ### 2 slice Coupled CS Tomography
 
 #### Lambda = 100
@@ -82,7 +81,6 @@ RMSE: 0.026821
 RMSE: 0.024038  
 ![](results/cs2_1.png)
 
-
 ### 3 slice Coupled CS Tomography
 
 #### Lambda = 100
@@ -99,3 +97,9 @@ RMSE: 0.020879
 
 RMSE: 0.019902  
 ![](results/cs3_1.png)
+
+## Conclusions
+
+Compressed Sensing Tomography give much better RMSE than Filtered Back Projection.  
+We see that n slice Coupled CS Tomography gives better results for larger n.  
+Also, as lambda decreases, we get better RMSE. But below a lower limit, we don't get any reconstruction at all, so we need to optimize the lambda value successively.
