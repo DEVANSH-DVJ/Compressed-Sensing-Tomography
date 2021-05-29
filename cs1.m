@@ -36,7 +36,7 @@ lambda = 10;
 
 tic;
 % Create object of Forward matrix
-A  = RU(N, M, angles);
+A  = CS(N, M, angles);
 
 % Reshape tomographic projections
 y = reshape(tomo, [M*Q 1]);

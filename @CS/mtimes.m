@@ -1,14 +1,14 @@
 
 function res = mtimes(A, x)
     % Input:
-    %   A : Object of RU class
+    %   A : Object of CS class
     %   x : coefficients of slice of size A.N*A.N or
     %        vectorized slice of size A.M*A.Q
     % Output:
     %   res : if not transpose, (R*U) * x
     %         if transpose, (U'*R') * x
     % Brief:
-    %   Overloads matrix multiplication operator of RU class
+    %   Overloads matrix multiplication operator of CS class
 
     if A.adjoint == 0
         % A*x
